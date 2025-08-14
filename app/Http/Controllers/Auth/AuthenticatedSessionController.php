@@ -424,14 +424,14 @@ public function showCustomerLoginForm($lang = '')
 
         $userId = $dataArr['sub'];
 
-        $user = User::find($userId);
+        $user = User::where(['shipping_user_id' => $userId])->first();
 
 
         if (!$user) {
             return response()->json(['error' => 'User not found'], 404);
         }
 
-        if(Auth::loginUsingId($userId)) {
+        if(Auth::loginUsingId($user->id)) {
             return redirect('/dashboard');
         }
 

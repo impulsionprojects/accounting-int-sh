@@ -18,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:api')->group(function () {
     Route::post('/inventory', [InventoryController::class, 'store']);
+    Route::post('/store-user', [InventoryController::class, 'storeUser']);
 });
 

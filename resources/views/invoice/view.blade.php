@@ -531,7 +531,7 @@
                                     <table class="table mb-0 table-striped">
                                         <tr>
                                             <th data-width="40" class="text-dark">#</th>
-                                            <th class="text-dark">{{ __('Vehicle') }}</th>
+{{--                                            <th class="text-dark">{{ __('Vehicle') }}</th>--}}
                                             <th class="text-dark">{{ __('Product') }}</th>
                                             <th class="text-dark">{{ __('Quantity') }}</th>
                                             <th class="text-dark">{{ __('Rate') }}</th>
@@ -569,7 +569,7 @@
                                             @endif
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
-                                                <td>{{ $invoice->inventory->name}}</td>
+{{--                                                <td>{{ $invoice->inventory->name}}</td>--}}
                                                 <td>{{ !empty($iteam->product()) ? $iteam->product()->name : '' }}</td>
                                                 <td>{{ $iteam->quantity }}</td>
                                                 <td>{{ \Auth::user()->priceFormat($iteam->price) }}</td>

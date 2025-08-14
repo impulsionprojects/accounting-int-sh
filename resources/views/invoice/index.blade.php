@@ -106,7 +106,7 @@
                             <thead>
                                 <tr>
                                     <th> {{ __('Invoice') }}</th>
-                                    <th> {{ __('Vehicle') }}</th>
+{{--                                    <th> {{ __('Vehicle') }}</th>--}}
                                     @if (!\Auth::guard('customer')->check())
                                         <th>{{ __('Customer') }}</th>
                                     @endif
@@ -136,7 +136,7 @@
                                                 <a href="{{ route('invoice.show', \Crypt::encrypt($invoice->id)) }}" class="btn btn-outline-primary">{{ AUth::user()->invoiceNumberFormat($invoice->invoice_id) }}</a>
                                             @endif
                                         </td>
-                                        <td>{{ $invoice->inventory->name }}</td>
+{{--                                        <td>{{ $invoice->inventory->name }}</td>--}}
                                         @if (!\Auth::guard('customer')->check())
                                             <td> {{ !empty($invoice->customer) ? $invoice->customer->name : '' }} </td>
                                         @endif

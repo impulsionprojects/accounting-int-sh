@@ -546,7 +546,7 @@ Route::resource('taxes', TaxController::class)->middleware(['auth','XSS','revali
 
 Route::resource('product-unit', ProductServiceUnitController::class)->middleware(['auth','XSS','revalidate']);
 
-Route::get('invoice/pdf/{id}', [InvoiceController::class,'invoice']);
+Route::get('invoice/pdf/{id}', [InvoiceController::class,'invoice'])->name('invoice.pdf');
 
 
 

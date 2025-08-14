@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\JournalEntryType;
-use App\Models\ActivityLog;
+//use App\Models\ActivityLog;
 use App\Models\BankAccount;
 use App\Models\Customer;
 use App\Models\CustomField;
@@ -12,10 +12,10 @@ use App\Models\Inventory;
 use App\Models\Invoice;
 use App\Models\InvoicePayment;
 use App\Models\InvoiceProduct;
-use App\Models\Mail\CustomerInvoiceSend;
-use App\Models\Mail\InvoicePaymentCreate;
-use App\Models\Mail\InvoiceSend;
-use App\Models\Mail\PaymentReminder;
+//use App\Models\Mail\CustomerInvoiceSend;
+//use App\Models\Mail\InvoicePaymentCreate;
+//use App\Models\Mail\InvoiceSend;
+//use App\Models\Mail\PaymentReminder;
 use App\Models\Milestone;
 use App\Models\Products;
 use App\Models\ProductService;
@@ -133,7 +133,7 @@ class InvoiceController extends Controller
                 $request->all(),
                 [
                     'customer_id' => 'required',
-                    'inventory_id' => 'required',
+//                    'inventory_id' => 'required',
                     'issue_date'  => 'required',
                     'due_date'    => 'required',
                     //                    'category_id' => 'required',
@@ -151,7 +151,7 @@ class InvoiceController extends Controller
             $invoice = new Invoice();
             $invoice->invoice_id = $this->invoiceNumber();
             $invoice->customer_id = $request->customer_id;
-            $invoice->inventory_id = $request->inventory_id;
+//            $invoice->inventory_id = $request->inventory_id;
             $invoice->status = 0;
             $invoice->issue_date = $request->issue_date;
             $invoice->due_date = $request->due_date;
@@ -264,7 +264,7 @@ class InvoiceController extends Controller
                     return redirect()->route('invoice.index')->with('error', $messages->first());
                 }
                 $invoice->customer_id = $request->customer_id;
-                $invoice->inventory_id = $request->inventory_id;
+//                $invoice->inventory_id = $request->inventory_id;
                 $invoice->issue_date = $request->issue_date;
                 $invoice->due_date = $request->due_date;
                 $invoice->ref_number = $request->ref_number;
