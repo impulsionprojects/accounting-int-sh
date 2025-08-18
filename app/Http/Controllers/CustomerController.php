@@ -38,7 +38,8 @@ class CustomerController extends Controller
     public function index()
     {
         if (\Auth::user()->can('manage customer')) {
-            $customers = Customer::where('created_by', \Auth::user()->creatorId())->get();
+//            $customers = Customer::where('created_by', \Auth::user()->creatorId())->get();
+            $customers = Customer::get();
 
             return view('customer.index', compact('customers'));
         } else {
@@ -121,7 +122,7 @@ class CustomerController extends Controller
                 'email' => $customer->email,
                 'password' => $request->password,
             ];
-            
+
             try {
                 $resp = Utility::sendEmailTemplate('user_created', [$customer->id => $customer->email], $uArr);
             }
@@ -362,7 +363,7 @@ class CustomerController extends Controller
             // $path = $request->file('profile')->storeAs('uploads/avatar/', $fileNameToStore);
             // dd($path);
             $path = Utility::upload_file($request,'profile',$fileNameToStore,$dir,[]);
-            
+
             if($path['flag'] == 1){
                 $url = $path['url'];
             }else{
@@ -376,7 +377,7 @@ class CustomerController extends Controller
 
 
         if (!empty($request->profile)) {
-            
+
             $user['avatar'] = $fileNameToStore;
         }
         $user['name']    = $request['name'];
@@ -621,7 +622,7 @@ class CustomerController extends Controller
 
     public function customerPasswordReset(Request $request, $id)
     {
-        
+
         $validator = \Validator::make(
             $request->all(), [
 
@@ -636,9 +637,9 @@ class CustomerController extends Controller
 
             return redirect()->back()->with('error', $messages->first());
         }
-        
+
         $customer                 = Customer::where('id', $id)->first();
-       
+
         $customer->forceFill([
                              'password' => Hash::make($request->password),
                          ])->save();

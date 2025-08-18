@@ -522,17 +522,17 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group" id="customer-box">
-                                        {{ Form::label('inventory_id', __('Vehicle'),['class'=>'form-label']) }}
-                                        {{ Form::select('inventory_id', $inventory,$invoice->inventory_id, array('class' => 'form-control item','required'=>'required')) }}
+{{--                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">--}}
+{{--                            <div class="row">--}}
+{{--                                <div class="col-md-12">--}}
+{{--                                    <div class="form-group" id="customer-box">--}}
+{{--                                        {{ Form::label('inventory_id', __('Vehicle'),['class'=>'form-label']) }}--}}
+{{--                                        {{ Form::select('inventory_id', $inventory,$invoice->inventory_id, array('class' => 'form-control item','required'=>'required')) }}--}}
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
