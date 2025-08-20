@@ -4,10 +4,10 @@ namespace App\Enums;
 
 abstract class ChartOfAccounts
 {
-    const ACCOUNTS_RECEIVABLE = 4;
+    const ACCOUNTS_RECEIVABLE = 5;
 
-    const VAT_PAYABLE = 15;
+    const VAT_PAYABLE = 20;
 
-    const SALES_DISCOUNT = 22;
+    const SALES_DISCOUNT = 55;
 
 }

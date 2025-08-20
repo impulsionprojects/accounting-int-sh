@@ -1471,7 +1471,7 @@ class UsersTableSeeder extends Seeder
             'currency'   => 'AED',
         ]);
         $userCompany2 = Company::create([
-            'name'       => 'Gulf Car Auction',
+            'name'       => 'Intelligent Global Shipping',
             'tax_number' => 'N/A',
             'address'    => 'Al Sajaa, Sharjah, UAE',
             'phone'      => '+971 558 800 800',

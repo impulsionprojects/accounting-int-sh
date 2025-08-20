@@ -646,7 +646,11 @@ class InvoiceController extends Controller
                 // TODO::sent email later
                 //$resp = Utility::sendEmailTemplate('new_invoice_payment', [ $customer->id => $customer->email ], $uArr);
             } catch ( \Exception $e ) {
+
+
                 DB::rollBack();
+
+                dd($e->getMessage());
                 $smtp_error = __('E-Mail has been not sent due to SMTP configuration' . $e->getMessage());
             }
 

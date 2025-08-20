@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->integer('created_by')->default(0);
             $table->integer('delete_status')->default(1);
             $table->integer('is_active')->default(1);
+            $table->integer('shipping_user_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         }

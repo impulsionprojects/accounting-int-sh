@@ -65,7 +65,7 @@ class ProductServiceController extends Controller
                 // 'purchase_price' => 'nullable|numeric',
 //                'category_id' => 'required',
                 'account' => 'required',
-                'tax_id' => 'required',
+//                'tax_id' => 'required',
             ];
 
             $validator = \Validator::make($request->all(), $rules);
@@ -115,7 +115,7 @@ class ProductServiceController extends Controller
 
                 $accounts = ChartOfAccount::select(\DB::raw('CONCAT(code, " - ", name) AS code_name, id'))->get()->pluck('code_name', 'id');
                 $accounts->prepend('Select Account', '');
-                
+
                 return view('productservice.edit', compact('category', 'unit', 'tax', 'productService', 'customFields', 'accounts'));
             } else {
                 return response()->json(['error' => __('Permission denied.')], 401);
@@ -143,7 +143,7 @@ class ProductServiceController extends Controller
                     // 'type' => 'required',
 
                     'account' => 'required',
-                    'tax_id' => 'required',
+//                    'tax_id' => 'required',
                 ];
 
                 $validator = \Validator::make($request->all(), $rules);

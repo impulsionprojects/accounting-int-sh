@@ -101,6 +101,8 @@ class DashboardController extends Controller
                 $data = [];
             }
 
+
+
             return view('dashboard.index', $data);
         }
         else
