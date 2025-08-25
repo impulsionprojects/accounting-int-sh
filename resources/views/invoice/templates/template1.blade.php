@@ -177,13 +177,17 @@
             <table>
                 <tbody>
                     <tr>
-                        <td>
+{{--                        <td>--}}
 {{--                            <img class="invoice-logo" src="{{ $img }}" alt="">--}}
-                            <img class="invoice-logo" src="{{ asset('/assets/images/int_logo.png') }}" width="200px" height="80px" alt="">
-                        </td>
-                        <td class="text-right">
-                            <h3 style="text-transform: uppercase; font-size: 40px; font-weight: bold;">
-                                {{ __('INVOICE') }}</h3>
+{{--                            <img class="invoice-logo" src="{{ asset('/assets/images/int_logo.png') }}" width="200px" height="80px" alt="">--}}
+{{--                        </td>--}}
+{{--                        <td class="text-right">--}}
+{{--                            <h3 style="text-transform: uppercase; font-size: 40px; font-weight: bold;">--}}
+{{--                                {{ __('INVOICE') }}</h3>--}}
+{{--                        </td>--}}
+                        <td style="text-align: center">
+                            <h1>Intelligent Global Solutions LLC</h1>
+                            <p style="font-size: 12px">671 Elizabeth St, Rahway, NJ 07065 United States, Tel: 7325408942</p>
                         </td>
                     </tr>
                 </tbody>

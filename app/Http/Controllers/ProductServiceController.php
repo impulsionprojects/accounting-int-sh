@@ -19,12 +19,12 @@ class ProductServiceController extends Controller
     {
 
         if (\Auth::user()->can('manage product & service')) {
-            $category = ProductServiceCategory::where('created_by', '=', \Auth::user()->creatorId())->where('type', '=', 0)->get()->pluck('name', 'id');
+            $category = ProductServiceCategory::where('type', '=', 0)->get()->pluck('name', 'id');
             if (!empty($request->category)) {
 
-                $productServices = ProductService::where('created_by', '=', \Auth::user()->creatorId())->where('category_id', $request->category)->get();
+                $productServices = ProductService::where('category_id', $request->category)->get();
             } else {
-                $productServices = ProductService::where('created_by', '=', \Auth::user()->creatorId())->get();
+                $productServices = ProductService::get();
             }
 
 
@@ -38,10 +38,10 @@ class ProductServiceController extends Controller
     public function create()
     {
         if (\Auth::user()->can('create product & service')) {
-            $customFields = CustomField::where('created_by', '=', \Auth::user()->creatorId())->where('module', '=', 'product')->get();
-            $category     = ProductServiceCategory::where('created_by', '=', \Auth::user()->creatorId())->where('type', '=', 0)->get()->pluck('name', 'id');
+            $customFields = CustomField::where('module', '=', 'product')->get();
+            $category     = ProductServiceCategory::where('type', '=', 0)->get()->pluck('name', 'id');
             //$unit         = ProductServiceUnit::where('created_by', '=', \Auth::user()->creatorId())->get()->pluck('name', 'id');
-            $tax          = Tax::where('created_by', '=', \Auth::user()->creatorId())->get()->pluck('name', 'id');
+            $tax          = Tax::get()->pluck('name', 'id');
 
             $accounts = ChartOfAccount::select(\DB::raw('CONCAT(code, " - ", name) AS code_name, id'))->get()->pluck('code_name', 'id');
             $accounts->prepend('Select Account', '');
@@ -105,12 +105,12 @@ class ProductServiceController extends Controller
 
         if (\Auth::user()->can('edit product & service')) {
             if ($productService->created_by == \Auth::user()->creatorId()) {
-                $category = ProductServiceCategory::where('created_by', '=', \Auth::user()->creatorId())->where('type', '=', 0)->get()->pluck('name', 'id');
-                $unit     = ProductServiceUnit::where('created_by', '=', \Auth::user()->creatorId())->get()->pluck('name', 'id');
-                $tax      = Tax::where('created_by', '=', \Auth::user()->creatorId())->get()->pluck('name', 'id');
+                $category = ProductServiceCategory::where('type', '=', 0)->get()->pluck('name', 'id');
+                $unit     = ProductServiceUnit::get()->pluck('name', 'id');
+                $tax      = Tax::get()->pluck('name', 'id');
 
                 $productService->customField = CustomField::getData($productService, 'product');
-                $customFields                = CustomField::where('created_by', '=', \Auth::user()->creatorId())->where('module', '=', 'product')->get();
+                $customFields                = CustomField::where('module', '=', 'product')->get();
                 $productService->tax_id      = explode(',', $productService->tax_id);
 
                 $accounts = ChartOfAccount::select(\DB::raw('CONCAT(code, " - ", name) AS code_name, id'))->get()->pluck('code_name', 'id');
@@ -131,7 +131,7 @@ class ProductServiceController extends Controller
 
         if (\Auth::user()->can('edit product & service')) {
             $productService = ProductService::find($id);
-            if ($productService->created_by == \Auth::user()->creatorId()) {
+            if (true) {
 
                 $rules = [
                     'name' => 'required',
